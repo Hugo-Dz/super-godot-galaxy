@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4ep6noxq4cto"]
+
+[ext_resource type="PackedScene" uid="uid://b8dsjjtl5a4m4" path="res://models/pine-crooked.glb" id="1_e6h7a"]
+[ext_resource type="Texture2D" uid="uid://i1khr1i3lcaf" path="res://models/graveyard_textures/colormap.png" id="2_ru5yg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dch00"]
+albedo_texture = ExtResource("2_ru5yg")
+
+[node name="pine-crooked" instance=ExtResource("1_e6h7a")]
+
+[node name="pine-crooked2" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dch00")

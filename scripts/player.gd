@@ -45,10 +45,11 @@ var orientation: Basis
 @onready var animation = $Character/AnimationPlayer
 
 func _ready():
-	debug.draw.add_vector(self, "planet_direction", 1, 4, Color.RED)
+	#debug.draw.add_vector(self, "planet_direction", 1, 4, Color.RED)
 	#debug.draw.add_vector(self, "move_dir", 1, 4, Color.RED)
 	#debug.draw.add_vector(self, "move_dir", 1, 4, Color.RED)
-	debug.draw.add_vector(self, "up_dir", 1, 4, Color.BLUE)
+	#debug.draw.add_vector(self, "up_dir", 1, 4, Color.BLUE)
+	pass
 	
 
 # Functions

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cctcmtljxskfo"]
+
+[ext_resource type="PackedScene" uid="uid://bdgr688163we7" path="res://models/planet_round.glb" id="1_g2u25"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rr5bj"]
+radius = 0.960742
+
+[node name="planet_round" instance=ExtResource("1_g2u25")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="planet" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="planet/StaticBody3D" index="0"]
+shape = SubResource("SphereShape3D_rr5bj")

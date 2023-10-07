@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddhcdggbrjscd"]
+
+[ext_resource type="PackedScene" uid="uid://dlyldqi6vo6ly" path="res://models/trunk-long.glb" id="1_wl3wb"]
+[ext_resource type="Texture2D" uid="uid://i1khr1i3lcaf" path="res://models/graveyard_textures/colormap.png" id="2_yofla"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ymg0"]
+albedo_texture = ExtResource("2_yofla")
+
+[node name="trunk-long" instance=ExtResource("1_wl3wb")]
+
+[node name="trunk-long2" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8ymg0")

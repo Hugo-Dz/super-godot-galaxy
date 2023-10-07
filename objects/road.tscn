@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://yw6yntcqu4u8"]
+
+[ext_resource type="PackedScene" uid="uid://bv8hi5ab8nb2d" path="res://models/road.glb" id="1_pvgbc"]
+[ext_resource type="Texture2D" uid="uid://i1khr1i3lcaf" path="res://models/graveyard_textures/colormap.png" id="2_fqb1w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41iyn"]
+albedo_texture = ExtResource("2_fqb1w")
+
+[node name="road" instance=ExtResource("1_pvgbc")]
+
+[node name="road2" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_41iyn")

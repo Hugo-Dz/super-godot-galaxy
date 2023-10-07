@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://cehfkuu26ujdx"]
+
+[ext_resource type="PackedScene" uid="uid://byw6x8h1xjy2m" path="res://models/coffin-old.glb" id="1_x82v3"]
+[ext_resource type="Texture2D" uid="uid://i1khr1i3lcaf" path="res://models/graveyard_textures/colormap.png" id="2_ncuy7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pncni"]
+albedo_texture = ExtResource("2_ncuy7")
+
+[node name="coffin-old" instance=ExtResource("1_x82v3")]
+
+[node name="coffin-old2" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pncni")
