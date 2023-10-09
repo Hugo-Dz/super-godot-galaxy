@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://idwsvkkhfwfn"]
+
+[ext_resource type="PackedScene" uid="uid://bh44boux4tmi4" path="res://models/gravestone-flat.glb" id="1_t85v0"]
+[ext_resource type="Texture2D" uid="uid://i1khr1i3lcaf" path="res://models/graveyard_textures/colormap.png" id="2_oc3ds"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_33fsw"]
+albedo_texture = ExtResource("2_oc3ds")
+
+[node name="gravestone-flat" instance=ExtResource("1_t85v0")]
+
+[node name="gravestone-flat2" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_33fsw")

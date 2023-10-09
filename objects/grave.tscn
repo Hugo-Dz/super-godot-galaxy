@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk71heq588ipl"]
+
+[ext_resource type="PackedScene" uid="uid://cr84r83pl8qy3" path="res://models/grave.glb" id="1_ejne3"]
+[ext_resource type="Texture2D" uid="uid://i1khr1i3lcaf" path="res://models/graveyard_textures/colormap.png" id="2_w43li"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhw0f"]
+albedo_texture = ExtResource("2_w43li")
+
+[node name="grave" instance=ExtResource("1_ejne3")]
+
+[node name="grave2" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dhw0f")

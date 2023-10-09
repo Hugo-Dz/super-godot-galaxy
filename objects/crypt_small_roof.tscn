@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://mg8v1woto67v"]
+
+[ext_resource type="PackedScene" uid="uid://2m0oao3nx00x" path="res://models/crypt-small-roof.glb" id="1_v0dtg"]
+[ext_resource type="Texture2D" uid="uid://i1khr1i3lcaf" path="res://models/graveyard_textures/colormap.png" id="2_rxcwo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vp0ol"]
+albedo_texture = ExtResource("2_rxcwo")
+
+[node name="crypt-small-roof" instance=ExtResource("1_v0dtg")]
+
+[node name="crypt-small-roof2" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vp0ol")

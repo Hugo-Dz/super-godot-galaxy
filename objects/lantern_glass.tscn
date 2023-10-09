@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://4x4dobnfygbr"]
+
+[ext_resource type="PackedScene" uid="uid://c48vpbnul6bbg" path="res://models/lantern-glass.glb" id="1_1xun2"]
+[ext_resource type="Texture2D" uid="uid://i1khr1i3lcaf" path="res://models/graveyard_textures/colormap.png" id="2_1l7hc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fwai4"]
+albedo_texture = ExtResource("2_1l7hc")
+
+[node name="lantern-glass" instance=ExtResource("1_1xun2")]
+
+[node name="lantern-glass2" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fwai4")

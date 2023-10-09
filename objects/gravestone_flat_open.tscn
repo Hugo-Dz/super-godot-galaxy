@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqoctrydmcloc"]
+
+[ext_resource type="PackedScene" uid="uid://866vvl0o63it" path="res://models/gravestone-flat-open.glb" id="1_72q5b"]
+[ext_resource type="Texture2D" uid="uid://i1khr1i3lcaf" path="res://models/graveyard_textures/colormap.png" id="2_3s5kh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sj6qu"]
+albedo_texture = ExtResource("2_3s5kh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5cayg"]
+albedo_texture = ExtResource("2_3s5kh")
+
+[node name="gravestone-flat-open" instance=ExtResource("1_72q5b")]
+
+[node name="gravestone-flat-open2" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_sj6qu")
+
+[node name="lid" parent="gravestone-flat-open2" index="0"]
+transform = Transform3D(0.976383, 0, -0.216047, 0, 1, 0, 0.216047, 0, 0.976383, -0.109273, 0.253933, -0.0209034)
+surface_material_override/0 = SubResource("StandardMaterial3D_5cayg")

@@ -29,4 +29,4 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
 volumetric_fog_albedo = Color(0.32549, 0.388235, 0.501961, 1)
 volumetric_fog_anisotropy = 0.9
-volumetric_fog_length = 80.0
+volumetric_fog_length = 25.0
