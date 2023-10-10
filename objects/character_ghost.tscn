@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpwyde3iq6w17"]
+
+[ext_resource type="PackedScene" uid="uid://bns5p8gqtqp3b" path="res://models/character-ghost.glb" id="1_fdq34"]
+[ext_resource type="Texture2D" uid="uid://i1khr1i3lcaf" path="res://models/graveyard_textures/colormap.png" id="2_5xnff"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6l4l"]
+albedo_texture = ExtResource("2_5xnff")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8ltk"]
+albedo_texture = ExtResource("2_5xnff")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qd6rv"]
+albedo_texture = ExtResource("2_5xnff")
+
+[node name="character-ghost" instance=ExtResource("1_fdq34")]
+
+[node name="torso" parent="character-ghost2/root" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_s6l4l")
+
+[node name="arm-left" parent="character-ghost2/root/torso" index="0"]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0.15, 0.225, 0.0025)
+surface_material_override/0 = SubResource("StandardMaterial3D_i8ltk")
+
+[node name="arm-right" parent="character-ghost2/root/torso" index="1"]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -0.15, 0.225, 0.0025)
+surface_material_override/0 = SubResource("StandardMaterial3D_qd6rv")

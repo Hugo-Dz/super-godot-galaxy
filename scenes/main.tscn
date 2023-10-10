@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bqqgyqafm7xwp"]
+[gd_scene load_steps=47 format=3 uid="uid://bqqgyqafm7xwp"]
 
 [ext_resource type="Environment" uid="uid://bqnqgflivjvue" path="res://scenes/main-environment.tres" id="1_ahusb"]
 [ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="2_onms2"]
@@ -41,7 +41,9 @@
 [ext_resource type="PackedScene" uid="uid://bxfjld8t86i7n" path="res://objects/shovel.tscn" id="36_mgwsd"]
 [ext_resource type="PackedScene" uid="uid://mg8v1woto67v" path="res://objects/crypt_small_roof.tscn" id="37_myphr"]
 [ext_resource type="Texture2D" uid="uid://ccu87k6cvyx38" path="res://sprites/moon.png" id="38_g0lyd"]
-[ext_resource type="Script" path="res://scenes/moon.gd" id="39_d53ys"]
+[ext_resource type="Script" path="res://scripts/moon.gd" id="39_rccd3"]
+[ext_resource type="Script" path="res://scripts/ghost.gd" id="43_g6b5n"]
+[ext_resource type="PackedScene" uid="uid://bpwyde3iq6w17" path="res://objects/character_ghost.tscn" id="43_t7v1w"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_tgm2a"]
 density = 0.1
@@ -104,9 +106,6 @@ transform = Transform3D(-1.02876, -0.695523, 0.652886, -0.929853, 0.945557, -0.4
 [node name="cube13" parent="World" instance=ExtResource("13_drtpy")]
 transform = Transform3D(1.56209, -1.37982, 1.71508, 1.97375, 1.80907, -0.342241, -0.974547, 1.4522, 2.05595, -18.3857, 2.85259, -13.1343)
 
-[node name="cube14" parent="World" instance=ExtResource("13_drtpy")]
-transform = Transform3D(1.56209, -1.37982, 1.71508, 1.97375, 1.80907, -0.342241, -0.974547, 1.4522, 2.05595, -17.2895, 3.90454, 9.3352)
-
 [node name="grass-small2" parent="World" instance=ExtResource("9_we3km")]
 transform = Transform3D(0.431618, 0.42896, 0.793535, -0.0040887, 0.880617, -0.47381, -0.902047, 0.201261, 0.381844, -8.92888, 1.53562, 1.10237)
 
@@ -124,6 +123,27 @@ transform = Transform3D(-0.395374, 0.531504, 0.749121, 0.359208, 0.840092, -0.40
 
 [node name="grass-small3" parent="World" instance=ExtResource("9_we3km")]
 transform = Transform3D(-0.849205, 0.453811, -0.270013, 0.242585, 0.789437, 0.563864, 0.469046, 0.413335, -0.780481, -8.96126, 1.4257, 1.35805)
+
+[node name="grass-small4" parent="World" instance=ExtResource("9_we3km")]
+transform = Transform3D(-0.978747, -0.113708, 0.170663, 0.143945, 0.211825, 0.966649, -0.146067, 0.970671, -0.190955, -10.8249, -1.39912, 4.59994)
+
+[node name="grass-small5" parent="World" instance=ExtResource("9_we3km")]
+transform = Transform3D(0.396579, -0.113708, 0.910931, 0.905474, 0.211825, -0.367762, -0.15114, 0.970671, 0.186965, -11.2952, -1.54942, 4.57765)
+
+[node name="grass-small6" parent="World" instance=ExtResource("9_we3km")]
+transform = Transform3D(-0.365444, -0.601623, 0.710283, 0.922348, -0.336841, 0.189242, 0.1254, 0.724285, 0.678002, -14.6971, -3.86405, 2.56773)
+
+[node name="grass-small7" parent="World" instance=ExtResource("9_we3km")]
+transform = Transform3D(0.690702, -0.6258, 0.362361, -0.00160796, 0.499764, 0.86616, -0.723139, -0.598841, 0.344182, -13.7869, 0.170688, -2.54912)
+
+[node name="grass-small9" parent="World" instance=ExtResource("9_we3km")]
+transform = Transform3D(0.694946, 0.0706706, 0.715581, -0.713456, -0.0562617, 0.698439, 0.0896186, -0.995913, 0.0113213, -10.8563, -3.42066, -4.74757)
+
+[node name="grass-small10" parent="World" instance=ExtResource("9_we3km")]
+transform = Transform3D(0.790958, 0.133032, -0.597235, 0.61149, -0.137433, 0.779226, 0.021582, -0.981538, -0.190051, -11.483, -3.74223, -4.55578)
+
+[node name="grass-small8" parent="World" instance=ExtResource("9_we3km")]
+transform = Transform3D(-0.324479, -0.813309, -0.482954, 0.111278, 0.474213, -0.87335, 0.939325, -0.337125, -0.0633691, -14.1678, 0.109292, -1.99363)
 
 [node name="debris-wood" parent="World" instance=ExtResource("15_a3o5d")]
 transform = Transform3D(1.39432, 1.33407, -0.525474, -1.35994, 1.46272, 0.105005, 0.454352, 0.284102, 1.92688, -7.75058, 0.823186, 0.527844)
@@ -204,18 +224,32 @@ transform = Transform3D(1.9815, 0.231343, -0.141891, 0.270838, -1.61905, 1.14251
 transform = Transform3D(-0.96579, 0.645009, -1.62826, 0.459443, -1.70099, -0.946337, -1.69002, -0.831027, 0.673226, -9.58925, -6.59121, -1.97569)
 
 [node name="lantern-glass" parent="World" instance=ExtResource("29_g701c")]
-transform = Transform3D(1.86961, -0.290932, 0.648013, -0.504042, -1.82897, 0.633101, 0.500503, -0.755138, -1.78305, -11.5454, -6.87712, -2.01726)
+transform = Transform3D(1.31046, -0.476122, 1.43388, -0.513818, -1.92541, -0.16974, 1.4208, -0.257156, -1.38391, -11.4521, -7.73906, -0.866183)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="World"]
-transform = Transform3D(-0.714183, -0.672902, -0.192731, -0.144974, 0.411578, -0.89977, 0.684781, -0.61466, -0.391495, -11.5964, -7.17486, -2.10219)
+transform = Transform3D(-0.721798, -0.659523, -0.20985, 0.0189744, 0.284235, -0.958567, 0.691843, -0.695874, -0.192646, -11.614, -8.42929, -0.972296)
 light_color = Color(1, 0.72549, 0.411765, 1)
 light_energy = 1.5
 light_volumetric_fog_energy = 6.0
 light_size = 0.2
 shadow_enabled = true
 
+[node name="OmniLight3D4" type="OmniLight3D" parent="World"]
+transform = Transform3D(-0.721798, -0.457159, -0.519628, 0.0189744, 0.737442, -0.675144, 0.691843, -0.497178, -0.52361, -7.70415, 1.27779, 3.87134)
+light_color = Color(1, 0.72549, 0.411765, 1)
+light_volumetric_fog_energy = 6.0
+light_size = 0.2
+shadow_enabled = true
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="World"]
+transform = Transform3D(-0.874406, -0.457159, -0.162541, -0.27051, 0.737442, -0.618873, 0.402788, -0.497178, -0.768489, -9.4598, 0.298934, 4.26276)
+light_color = Color(1, 0.72549, 0.411765, 1)
+light_volumetric_fog_energy = 6.0
+light_size = 0.2
+shadow_enabled = true
+
 [node name="OmniLight3D3" type="OmniLight3D" parent="World"]
-transform = Transform3D(-0.77461, 0.577034, 0.258866, -0.533865, -0.377147, -0.756801, -0.339069, -0.724425, 0.6002, -9.41907, -7.59393, 4.19304)
+transform = Transform3D(-0.77461, 0.577034, 0.258866, -0.533865, -0.377147, -0.756801, -0.339069, -0.724425, 0.6002, -9.44035, -7.53172, 4.14371)
 light_color = Color(1, 0.72549, 0.411765, 1)
 light_energy = 1.5
 light_volumetric_fog_energy = 6.0
@@ -241,10 +275,10 @@ transform = Transform3D(-0.766896, -1.79835, 0.421681, 0.713944, 0.132506, 1.863
 transform = Transform3D(-1.5905, -1.20866, -0.097171, -0.846612, 0.992176, 1.51619, -0.868077, 1.24688, -1.30066, -13.656, -1.51394, 3.21111)
 
 [node name="cross5" parent="World" instance=ExtResource("31_uj2wa")]
-transform = Transform3D(-1.96729, -0.080019, -0.351211, -0.298737, -0.727128, 1.83903, -0.201266, 1.86142, 0.703285, -11.2382, -1.10182, 4.04104)
+transform = Transform3D(-1.96729, -0.168821, -0.318201, -0.298737, -0.2225, 1.965, -0.201266, 1.9804, 0.193646, -11.2382, -1.10182, 4.04104)
 
 [node name="cross4" parent="World" instance=ExtResource("31_uj2wa")]
-transform = Transform3D(-1.91327, 0.574404, -0.0971709, 0.3038, 1.26841, 1.51619, 0.49708, 1.43568, -1.30066, -11.6562, 0.545554, 3.05013)
+transform = Transform3D(-1.99754, 0.0197289, -0.0971709, -0.0608871, 1.30286, 1.51619, 0.0782568, 1.51728, -1.30066, -11.6461, 0.567819, 3.07533)
 
 [node name="crypt-large" parent="World" instance=ExtResource("32_qb7o0")]
 transform = Transform3D(1.56262, -0.702689, 1.03173, 0.737282, -0.81435, -1.6713, 1.0073, 1.68614, -0.377218, -12.3397, -4.41229, 3.37925)
@@ -270,8 +304,14 @@ transform = Transform3D(-0.126389, 1.11856, 1.65313, 1.45123, 1.18875, -0.693392
 [node name="pumpkin" parent="World" instance=ExtResource("35_cr3th")]
 transform = Transform3D(1.10635, 1.14437, -1.21095, -1.62016, 1.07803, -0.46145, 0.388691, 1.23623, 1.52337, -8.27555, 0.868532, 3.33183)
 
+[node name="pumpkin2" parent="World" instance=ExtResource("35_cr3th")]
+transform = Transform3D(1.80069, 0.351171, 0.796364, 0.473177, 1.14091, -1.57303, -0.730489, 1.60468, 0.944132, -9.69591, -0.00697852, 3.69289)
+
 [node name="shovel" parent="World" instance=ExtResource("36_mgwsd")]
-transform = Transform3D(1.06705, 1.65837, -0.333483, 0.445212, -0.655718, -1.83625, -1.63193, 0.905451, -0.719006, -7.40284, 0.231092, 2.83807)
+transform = Transform3D(1.08714, 1.65837, -0.260628, 0.568257, -0.655718, -1.80197, -1.57962, 0.905451, -0.82762, -7.40284, 0.231092, 2.83807)
+
+[node name="shovel2" parent="World" instance=ExtResource("36_mgwsd")]
+transform = Transform3D(1.09435, -0.160441, -1.66633, 0.640001, -1.79946, 0.593577, -1.54687, -0.858015, -0.933283, -7.26515, -6.15396, 2.03351)
 
 [node name="crypt-small" parent="World" instance=ExtResource("36_1jyvc")]
 transform = Transform3D(0.464124, 1.6654, -1.00549, -0.261627, -0.970888, -1.72885, -1.92773, 0.532733, -0.0074488, -7.37418, -4.97818, 1.30211)
@@ -281,7 +321,10 @@ transform = Transform3D(-0.512409, 1.66681, 0.979374, 0.309844, -0.929288, 1.743
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
-light_color = Color(0.709804, 0.752941, 1, 1)
+light_color = Color(0.74902, 1, 0.870588, 1)
+light_energy = 0.2
+light_volumetric_fog_energy = 4.0
+light_angular_distance = 0.7
 shadow_enabled = true
 shadow_opacity = 0.75
 
@@ -290,7 +333,7 @@ transform = Transform3D(-4.22618, -6.94272, 5.82563, 2.24196e-15, 6.42788, 7.660
 cast_shadow = 0
 billboard = 1
 texture = ExtResource("38_g0lyd")
-script = ExtResource("39_d53ys")
+script = ExtResource("39_rccd3")
 view = NodePath("../View")
 sun = NodePath("../Sun")
 
@@ -320,5 +363,33 @@ offset_right = 368.0
 offset_bottom = 123.0
 text = "0"
 label_settings = SubResource("LabelSettings_38ys3")
+
+[node name="ghost" type="Node3D" parent="."]
+transform = Transform3D(0.343496, 0.939154, 3.48787e-16, -0.939154, 0.343496, -3.48787e-16, -4.47371e-16, -2.07758e-16, 1, -2.52404, 0.207731, 2.08152e-12)
+script = ExtResource("43_g6b5n")
+
+[node name="character-ghost" parent="ghost" instance=ExtResource("43_t7v1w")]
+transform = Transform3D(2, -0.000488669, -8.37526e-16, 0.00048868, 2, -5.21314e-16, 8.37653e-16, 5.21109e-16, 2, 0.00740737, -0.0017488, -2.08164e-12)
+
+[node name="ghost2" type="Node3D" parent="."]
+transform = Transform3D(0.473953, -0.0360519, -0.879812, 0.38649, 0.906291, 0.171065, 0.791198, -0.421115, 0.443473, -11.8154, 4.7351, -2.76062)
+script = ExtResource("43_g6b5n")
+
+[node name="character-ghost" parent="ghost2" instance=ExtResource("43_t7v1w")]
+transform = Transform3D(2, -0.000488663, -6.70117e-08, 0.000488749, 2, 1.01195e-08, -7.35288e-09, 2.35269e-08, 2, 0.00740719, -0.00174856, 0)
+
+[node name="ghost4" type="Node3D" parent="."]
+transform = Transform3D(-0.129923, -0.347791, -0.928527, 0.810916, -0.576145, 0.102336, -0.570557, -0.739661, 0.356883, -13.4829, -6.68179, -5.8063)
+script = ExtResource("43_g6b5n")
+
+[node name="character-ghost" parent="ghost4" instance=ExtResource("43_t7v1w")]
+transform = Transform3D(2, -0.000488663, -6.70117e-08, 0.000488749, 2, 1.01195e-08, -7.35288e-09, 2.35269e-08, 2, 0.00740719, -0.00174856, 0)
+
+[node name="ghost3" type="Node3D" parent="."]
+transform = Transform3D(0.196926, -0.944246, 0.263855, 0.346838, -0.184627, -0.919574, 0.917019, 0.272603, 0.291142, -17.7465, -4.20788, 2.27987)
+script = ExtResource("43_g6b5n")
+
+[node name="character-ghost" parent="ghost3" instance=ExtResource("43_t7v1w")]
+transform = Transform3D(2, -0.000488669, -8.37526e-16, 0.00048868, 2, -5.21314e-16, 8.37653e-16, 5.21109e-16, 2, 0.00740737, -0.0017488, -2.08164e-12)
 
 [connection signal="coin_collected" from="player" to="HUD" method="_on_coin_collected"]
