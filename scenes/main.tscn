@@ -89,7 +89,19 @@ shape = 0
 material = SubResource("FogMaterial_tgm2a")
 
 [node name="coin5" parent="World" instance=ExtResource("10_fwhys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7731, 2.54941, -2.28223)
+transform = Transform3D(1, 0, 0, 0, 0.851882, 0.523733, 0, -0.523733, 0.851882, -11.5751, 2.00242, -1.94594)
+
+[node name="coin6" parent="World" instance=ExtResource("10_fwhys")]
+transform = Transform3D(0.516562, -0.812233, 0.271001, -0.205964, 0.189337, 0.960068, -0.831109, -0.551751, -0.0694859, -15.1916, -1.26048, -2.55556)
+
+[node name="coin8" parent="World" instance=ExtResource("10_fwhys")]
+transform = Transform3D(-0.0350153, 0.647889, -0.760929, -0.842552, 0.390345, 0.371129, 0.537475, 0.654118, 0.532213, -6.90573, -1.01405, 4.06861)
+
+[node name="coin9" parent="World" instance=ExtResource("10_fwhys")]
+transform = Transform3D(-0.72979, 0.0979013, -0.676626, -0.21444, -0.972529, 0.0905737, -0.649171, 0.211195, 0.730735, -9.63727, -8.29078, 1.50642)
+
+[node name="coin10" parent="World" instance=ExtResource("10_fwhys")]
+transform = Transform3D(-0.458693, 0.811748, 0.361477, -0.13367, 0.339135, -0.931193, -0.878484, -0.47545, -0.0470528, -6.09158, -0.4892, -3.49051)
 
 [node name="cube8" parent="World" instance=ExtResource("13_drtpy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5495, 1.10741, -2.666)
@@ -321,9 +333,9 @@ transform = Transform3D(-0.512409, 1.66681, 0.979374, 0.309844, -0.929288, 1.743
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
-light_color = Color(0.74902, 1, 0.870588, 1)
-light_energy = 0.2
-light_volumetric_fog_energy = 4.0
+light_color = Color(0.74902, 0.921569, 1, 1)
+light_energy = 0.5
+light_volumetric_fog_energy = 2.0
 light_angular_distance = 0.7
 shadow_enabled = true
 shadow_opacity = 0.75
