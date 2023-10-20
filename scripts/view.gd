@@ -12,7 +12,7 @@ extends Node3D
 @export var rotation_speed = 120
 
 var camera_rotation:Vector3
-var zoom = 10
+var zoom = 20 # Landscape: 20, Portrait: 30
 var smoothing = 0.75
 
 var previous_pos: Vector3 = Vector3.ZERO
@@ -23,7 +23,7 @@ var previous_pos: Vector3 = Vector3.ZERO
 func _physics_process(delta):
 	
 	# Calculate the desired camera position (assuming top-down, adjust as needed)
-	var camera_position = target.projected_position + target.up_dir * 20
+	var camera_position = target.projected_position + target.up_dir * zoom
 
 	# Smoothly move the camera to the desired position
 	global_transform.origin = global_transform.origin.lerp(camera_position, smoothing * delta)

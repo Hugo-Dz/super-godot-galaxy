@@ -331,6 +331,34 @@ transform = Transform3D(0.464124, 1.6654, -1.00549, -0.261627, -0.970888, -1.728
 [node name="crypt-small-roof" parent="World" instance=ExtResource("37_myphr")]
 transform = Transform3D(-0.512409, 1.66681, 0.979374, 0.309844, -0.929288, 1.74368, 1.90825, 0.598465, -0.0201379, -5.81686, -5.89756, 1.84)
 
+[node name="ghost" type="Node3D" parent="World"]
+transform = Transform3D(0.343496, 0.939154, 3.48787e-16, -0.939154, 0.343496, -3.48787e-16, -4.47371e-16, -2.07758e-16, 1, -2.52404, 0.207731, 2.08152e-12)
+script = ExtResource("43_g6b5n")
+
+[node name="character-ghost" parent="World/ghost" instance=ExtResource("43_t7v1w")]
+transform = Transform3D(2, -0.000488669, -8.37526e-16, 0.00048868, 2, -5.21314e-16, 8.37653e-16, 5.21109e-16, 2, 0.00740737, -0.0017488, -2.08164e-12)
+
+[node name="ghost2" type="Node3D" parent="World"]
+transform = Transform3D(0.473953, -0.0360519, -0.879812, 0.38649, 0.906291, 0.171065, 0.791198, -0.421115, 0.443473, -11.8154, 4.7351, -2.76062)
+script = ExtResource("43_g6b5n")
+
+[node name="character-ghost" parent="World/ghost2" instance=ExtResource("43_t7v1w")]
+transform = Transform3D(2, -0.000488663, -6.70117e-08, 0.000488749, 2, 1.01195e-08, -7.35288e-09, 2.35269e-08, 2, 0.00740719, -0.00174856, 0)
+
+[node name="ghost4" type="Node3D" parent="World"]
+transform = Transform3D(-0.129923, -0.347791, -0.928527, 0.810916, -0.576145, 0.102336, -0.570557, -0.739661, 0.356883, -13.4829, -6.68179, -5.8063)
+script = ExtResource("43_g6b5n")
+
+[node name="character-ghost" parent="World/ghost4" instance=ExtResource("43_t7v1w")]
+transform = Transform3D(2, -0.000488663, -6.70117e-08, 0.000488749, 2, 1.01195e-08, -7.35288e-09, 2.35269e-08, 2, 0.00740719, -0.00174856, 0)
+
+[node name="ghost3" type="Node3D" parent="World"]
+transform = Transform3D(0.196926, -0.944246, 0.263855, 0.346838, -0.184627, -0.919574, 0.917019, 0.272603, 0.291142, -17.7465, -4.20788, 2.27987)
+script = ExtResource("43_g6b5n")
+
+[node name="character-ghost" parent="World/ghost3" instance=ExtResource("43_t7v1w")]
+transform = Transform3D(2, -0.000488669, -8.37526e-16, 0.00048868, 2, -5.21314e-16, 8.37653e-16, 5.21109e-16, 2, 0.00740737, -0.0017488, -2.08164e-12)
+
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.422618, -0.694272, 0.582563, 0, 0.642788, 0.766044, -0.906308, 0.323744, -0.271654, 0, 0, 0)
 light_color = Color(0.74902, 0.921569, 1, 1)
@@ -375,33 +403,5 @@ offset_right = 368.0
 offset_bottom = 123.0
 text = "0"
 label_settings = SubResource("LabelSettings_38ys3")
-
-[node name="ghost" type="Node3D" parent="."]
-transform = Transform3D(0.343496, 0.939154, 3.48787e-16, -0.939154, 0.343496, -3.48787e-16, -4.47371e-16, -2.07758e-16, 1, -2.52404, 0.207731, 2.08152e-12)
-script = ExtResource("43_g6b5n")
-
-[node name="character-ghost" parent="ghost" instance=ExtResource("43_t7v1w")]
-transform = Transform3D(2, -0.000488669, -8.37526e-16, 0.00048868, 2, -5.21314e-16, 8.37653e-16, 5.21109e-16, 2, 0.00740737, -0.0017488, -2.08164e-12)
-
-[node name="ghost2" type="Node3D" parent="."]
-transform = Transform3D(0.473953, -0.0360519, -0.879812, 0.38649, 0.906291, 0.171065, 0.791198, -0.421115, 0.443473, -11.8154, 4.7351, -2.76062)
-script = ExtResource("43_g6b5n")
-
-[node name="character-ghost" parent="ghost2" instance=ExtResource("43_t7v1w")]
-transform = Transform3D(2, -0.000488663, -6.70117e-08, 0.000488749, 2, 1.01195e-08, -7.35288e-09, 2.35269e-08, 2, 0.00740719, -0.00174856, 0)
-
-[node name="ghost4" type="Node3D" parent="."]
-transform = Transform3D(-0.129923, -0.347791, -0.928527, 0.810916, -0.576145, 0.102336, -0.570557, -0.739661, 0.356883, -13.4829, -6.68179, -5.8063)
-script = ExtResource("43_g6b5n")
-
-[node name="character-ghost" parent="ghost4" instance=ExtResource("43_t7v1w")]
-transform = Transform3D(2, -0.000488663, -6.70117e-08, 0.000488749, 2, 1.01195e-08, -7.35288e-09, 2.35269e-08, 2, 0.00740719, -0.00174856, 0)
-
-[node name="ghost3" type="Node3D" parent="."]
-transform = Transform3D(0.196926, -0.944246, 0.263855, 0.346838, -0.184627, -0.919574, 0.917019, 0.272603, 0.291142, -17.7465, -4.20788, 2.27987)
-script = ExtResource("43_g6b5n")
-
-[node name="character-ghost" parent="ghost3" instance=ExtResource("43_t7v1w")]
-transform = Transform3D(2, -0.000488669, -8.37526e-16, 0.00048868, 2, -5.21314e-16, 8.37653e-16, 5.21109e-16, 2, 0.00740737, -0.0017488, -2.08164e-12)
 
 [connection signal="coin_collected" from="player" to="HUD" method="_on_coin_collected"]
