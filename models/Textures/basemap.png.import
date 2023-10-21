@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0odt7cvj574e"
-path.bptc="res://.godot/imported/colormap.png-c1bc3c3aabeec406ff4b53328583776a.bptc.ctex"
-path.astc="res://.godot/imported/colormap.png-c1bc3c3aabeec406ff4b53328583776a.astc.ctex"
+uid="uid://bq3gnvg17cjvo"
+path.s3tc="res://.godot/imported/basemap.png-6f3f757a9d20786121b6f5a8ae341be1.s3tc.ctex"
+path.etc2="res://.godot/imported/basemap.png-6f3f757a9d20786121b6f5a8ae341be1.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,13 +12,13 @@ metadata={
 
 [deps]
 
-source_file="res://models/Textures/colormap.png"
-dest_files=["res://.godot/imported/colormap.png-c1bc3c3aabeec406ff4b53328583776a.bptc.ctex", "res://.godot/imported/colormap.png-c1bc3c3aabeec406ff4b53328583776a.astc.ctex"]
+source_file="res://models/Textures/basemap.png"
+dest_files=["res://.godot/imported/basemap.png-6f3f757a9d20786121b6f5a8ae341be1.s3tc.ctex", "res://.godot/imported/basemap.png-6f3f757a9d20786121b6f5a8ae341be1.etc2.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=true
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo5t0n4iir1sg"
-path.bptc="res://.godot/imported/sky1.exr-152fe80115b75f29f827e76bd098b3c0.bptc.ctex"
+uid="uid://bqhx6wsmj0tap"
+path.bptc="res://.godot/imported/night.exr-51765b5e72e31ce2b8fee230b873eacb.bptc.ctex"
+path.astc="res://.godot/imported/night.exr-51765b5e72e31ce2b8fee230b873eacb.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
-source_file="res://sky/sky1.exr"
-dest_files=["res://.godot/imported/sky1.exr-152fe80115b75f29f827e76bd098b3c0.bptc.ctex"]
+source_file="res://night.exr"
+dest_files=["res://.godot/imported/night.exr-51765b5e72e31ce2b8fee230b873eacb.bptc.ctex", "res://.godot/imported/night.exr-51765b5e72e31ce2b8fee230b873eacb.astc.ctex"]
 
 [params]
 

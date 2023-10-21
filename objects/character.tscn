@@ -1,5 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0e27836xgmhi"]
+[gd_scene load_steps=9 format=3 uid="uid://c0e27836xgmhi"]
 
 [ext_resource type="PackedScene" uid="uid://xy8rvnjp22n5" path="res://models/character.glb" id="1_vn7w5"]
+[ext_resource type="Texture2D" uid="uid://bq3gnvg17cjvo" path="res://models/Textures/basemap.png" id="2_fd0n1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqe0w"]
+albedo_texture = ExtResource("2_fd0n1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yl0kd"]
+albedo_texture = ExtResource("2_fd0n1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ta4ww"]
+albedo_texture = ExtResource("2_fd0n1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00gal"]
+albedo_texture = ExtResource("2_fd0n1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0f0lq"]
+albedo_texture = ExtResource("2_fd0n1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6ubr"]
+albedo_texture = ExtResource("2_fd0n1")
 
 [node name="character" instance=ExtResource("1_vn7w5")]
+
+[node name="leg-left" parent="character2/root" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mqe0w")
+
+[node name="leg-right" parent="character2/root" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_yl0kd")
+
+[node name="torso" parent="character2/root" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ta4ww")
+
+[node name="arm-left" parent="character2/root/torso" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_00gal")
+
+[node name="arm-right" parent="character2/root/torso" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0f0lq")
+
+[node name="antenna" parent="character2/root/torso" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_m6ubr")

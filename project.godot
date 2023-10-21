@@ -32,6 +32,10 @@ window/size/window_height_override=1458
 
 movie_writer/movie_file="C:/Users/Kenney/Desktop/video-footage.avi"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/coi_serviceworker/plugin.cfg")
+
 [input]
 
 move_right={
@@ -110,4 +114,6 @@ zoom_out={
 
 [rendering]
 
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true
 anti_aliasing/quality/screen_space_aa=1

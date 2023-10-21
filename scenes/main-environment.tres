@@ -1,9 +1,9 @@
 [gd_resource type="Environment" load_steps=4 format=3 uid="uid://bqnqgflivjvue"]
 
-[ext_resource type="Texture2D" uid="uid://bo5t0n4iir1sg" path="res://sky/sky1.exr" id="1_7vfan"]
+[ext_resource type="Texture2D" uid="uid://bqhx6wsmj0tap" path="res://night.exr" id="1_1ry6a"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1ntxf"]
-panorama = ExtResource("1_7vfan")
+panorama = ExtResource("1_1ry6a")
 
 [sub_resource type="Sky" id="Sky_uil8b"]
 sky_material = SubResource("PanoramaSkyMaterial_1ntxf")
