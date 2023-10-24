@@ -120,6 +120,9 @@ func handle_controls(delta):
 	input_direction.x = Input.get_axis("move_left", "move_right")
 	input_direction.y = Input.get_axis("move_forward", "move_back")
 	input_direction = input_direction.normalized()
+	
+	if Input.is_key_pressed(KEY_S):
+		input_direction.y = 0
 
 	var right_dir = -transform.basis.x
 	var forward_dir = -transform.basis.z
