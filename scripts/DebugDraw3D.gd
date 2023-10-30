@@ -22,7 +22,7 @@ class Vector:
 
 var vectors = []  # Array to hold all registered values.
 
-func _process(delta):
+func _process(_delta):
 	if not visible:
 		return
 	queue_redraw()

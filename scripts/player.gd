@@ -6,9 +6,12 @@ signal coin_collected
 @export var view: Node3D
 
 @export_subgroup("Properties")
-@export var movement_speed = 250
-@export var jump_strength = 10
+@export var movement_speed: int = 250
+@export var jump_strength: int = 10
 @export var planet_path : NodePath
+
+@export_subgroup("Debug options")
+@export var show_vectors: bool = false
 
 var gravity: Vector3
 var gravity_strength: float = 7
@@ -19,16 +22,16 @@ var move_dir: Vector3 = Vector3.ZERO
 var rotation_direction: float
 var input_direction: Vector2 = Vector2.ZERO
 
-var previously_floored = false
+var previously_floored: bool = false
 
 var projected_position: Vector3 = Vector3.ZERO
 
-var jump_single = true
-var jump_double = true
-var jump_deceleration = 10.0
-var is_jumping = false
+var jump_single: bool = true
+var jump_double: bool = true
+var jump_deceleration: float = 10.0
+var is_jumping: bool = false
 
-var coins = 0
+var coins: int = 0
 
 # Variable declared in global scope just to vizualise vectors
 # Handle rotation function
@@ -44,21 +47,21 @@ var orientation: Basis
 @onready var model = $Character
 @onready var animation = $Character/AnimationPlayer
 
-func _ready():
-	#debug.draw.add_vector(self, "planet_direction", 1, 4, Color.RED)
-	#debug.draw.add_vector(self, "move_dir", 1, 4, Color.RED)
-	#debug.draw.add_vector(self, "move_dir", 1, 4, Color.RED)
-	#debug.draw.add_vector(self, "up_dir", 1, 4, Color.BLUE)
-	pass
-	
+func _ready() -> void:
+	# Display debug vectors
+	if show_vectors:
+		debug.draw.add_vector(self, "gravity_velocity", 1, 4, Color.YELLOW)
+		debug.draw.add_vector(self, "move_dir", 1, 4, Color.RED)
+		debug.draw.add_vector(self, "up_dir", 1, 4, Color.BLUE)
+		
 
 # Functions
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	
 	# Handle functions
 	handle_controls(delta)
 	apply_gravity(delta)
-	handle_orientation(delta, move_dir)
+	handle_orientation(delta)
 	handle_effects()
 	
 	velocity += gravity_velocity
@@ -78,8 +81,8 @@ func _physics_process(delta):
 	
 	planet_direction = gravity.normalized()
 
-# Handle animation(s)
-func handle_effects():
+# Handle animations
+func handle_effects() -> void:
 	
 	particles_trail.emitting = false
 	sound_footsteps.stream_paused = true
@@ -95,16 +98,16 @@ func handle_effects():
 		animation.play("jump", 0.5)
 
 # Apply gravity
-func apply_gravity(delta):
+func apply_gravity(delta) -> void:
 	var sphere_node = get_node_or_null(planet_path)
 	if sphere_node:
-		var dir_to_planet_center = sphere_node.global_transform.origin - global_transform.origin
+		var dir_to_planet_center: Vector3 = sphere_node.global_transform.origin - global_transform.origin
 		gravity = dir_to_planet_center.normalized() * gravity_strength
 		gravity_velocity += gravity * delta
 		
 	# Taking jump into account
 	if is_jumping and gravity_velocity.dot(-gravity.normalized()) > 0:
-		gravity_velocity += gravity.normalized() * jump_deceleration * delta  # Upward deceleration
+		gravity_velocity += gravity.normalized() * jump_deceleration * delta  # Upward deceleration to get a smooth jump
 	else:
 		is_jumping = false
 		gravity_velocity += gravity * delta
@@ -115,7 +118,7 @@ func apply_gravity(delta):
 		jump_double = true
 
 # Handle movement input
-func handle_controls(delta):
+func handle_controls(delta) -> void:
 	input_direction = Vector2.ZERO
 	input_direction.x = Input.get_axis("move_left", "move_right")
 	input_direction.y = Input.get_axis("move_forward", "move_back")
@@ -124,8 +127,8 @@ func handle_controls(delta):
 	if Input.is_key_pressed(KEY_S):
 		input_direction.y = 0
 
-	var right_dir = -transform.basis.x
-	var forward_dir = -transform.basis.z
+	right_dir = -transform.basis.x
+	forward_dir = -transform.basis.z
 
 	move_dir = (forward_dir * input_direction.y + right_dir * input_direction.x).normalized()
 	velocity = move_dir * movement_speed * delta
@@ -139,7 +142,7 @@ func handle_controls(delta):
 			jump_action()
 
 # Jumping
-func jump():
+func jump() -> void:
 	
 	jump_action()
 	
@@ -148,7 +151,7 @@ func jump():
 	jump_single = false;
 	jump_double = true;
 	
-func jump_action():
+func jump_action() -> void:
 	if is_on_floor() or jump_double:
 		Audio.play("res://sounds/jump.ogg")
 		model.scale = Vector3(0.5, 1.5, 0.5)
@@ -156,13 +159,13 @@ func jump_action():
 		is_jumping = true
 
 # Collecting coins
-func collect_coin():
+func collect_coin() -> void:
 	
 	coins += 1
 	
 	coin_collected.emit(coins)
 
-func handle_orientation(delta, move_dir):
+func handle_orientation(delta) -> void:
 
 	# Step 1: Align the player with the planet
 	up_dir = -gravity.normalized()
@@ -186,11 +189,8 @@ func handle_orientation(delta, move_dir):
 	orientation = Basis(right_dir, up_dir, forward_dir)
 	global_transform.basis = orientation
 	
-	
-	
 	# Step 2: Build face quaternion so the player always face where it goes
-	var target_transform = Transform3D()
-	var target_position = global_transform.origin + move_dir
+	var target_transform: Transform3D = Transform3D()
 	
 	if velocity.length() > 0.1:
 		
@@ -200,8 +200,9 @@ func handle_orientation(delta, move_dir):
 			var target_quaternion = Quaternion(target_transform.basis)
 			quaternion = quaternion.slerp(target_quaternion, delta * 10)
 
+# Get the projected position on the planet for the camera handling
 func get_projected_position_on_planet() -> Vector3:
-	var sphere_node = get_node_or_null(planet_path)
+	var sphere_node: Node = get_node_or_null(planet_path)
 	if sphere_node:
 		var normalized_dir = planet_direction.normalized()
 		var planet_radius = sphere_node.scale.x * 0.5  # Assuming the planet is a perfect sphere with diameter = scale.x
