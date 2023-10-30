@@ -16,12 +16,12 @@ Open Godot and import the `project.godot` file
 
 ## Screenshot
 
-<p align="center"><img src="screenshots/screenshot_1.png"/></p>
+<p align="center"><img src="screenshots/screenshot_0.png"/></p>
 
 ## Blender tutorial (for the starry skybox)
 
 You can find a quick tutorial on how to create a starry night sky with Blender [here](https://x.com/HugoDuprez/status/1713973279147372546?s=20).
-<p align="center"><img src="splash-screen.png"/></p>
+<p align="center"><img src="screenshots/screenshot_1.png"/></p>
 
 ## Tips to publish Godot 4 games on the Web
 
