@@ -30,7 +30,7 @@ Godot 4 introduced multithreading using SharedArrayBuffer, so make sure to set t
 
 ## Special thanks
 
-Kenney for the awesome assets and 3D starter kit. Check out his work at [kenney.nl](https://kenney.nl/).
+Kenney for the awesome assets and 3D starter kit. Check out his work at [kenney.nl](https://kenney.nl/). Consider a donation!
 
 ## License
 
