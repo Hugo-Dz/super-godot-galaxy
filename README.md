@@ -18,7 +18,7 @@ Open Godot and import the `project.godot` file
 
 <p align="center"><img src="screenshots/screenshot_0.png"/></p>
 
-## Blender tutorial (for starry skybox)
+## Blender tutorial (for the starry skybox)
 
 You can find a quick toturial on how to create a starry night sky with Blender [here](https://x.com/HugoDuprez/status/1713973279147372546?s=20).
 
