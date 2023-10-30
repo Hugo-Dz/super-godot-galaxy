@@ -16,7 +16,7 @@ Open Godot and import the `project.godot` file
 
 ## Screenshot
 
-<p align="center"><img src="screenshots/screenshot_0.png"/></p>
+<p align="center"><img src="screenshots/screenshot_1.png"/></p>
 
 ## Blender tutorial (for the starry skybox)
 
