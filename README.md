@@ -2,7 +2,7 @@
 
 # Super Godot Galaxy concept
 
-This little project is a concept of Super Mario Galaxy like mechanics made with Godot 4. I dit it to learn about Godot and game dev and used the [3D starter kit](https://godotengine.org/asset-library/asset/2120) from Kenney as starting point.
+This little project is a concept of Super Mario Galaxy like mechanics made with Godot 4. I dit it for learning purposes and used the [3D starter kit](https://godotengine.org/asset-library/asset/2120) from Kenney as starting point.
 
 ## Run it locally
 
